@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+h1 {
+    margin-bottom: 12px;
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+p {
+    line-height: 1.7;
+}
+
+form {
+    display: grid;
+    gap: 16px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 18px;
+    padding: 24px;
+}
+
+label {
+    font-weight: 600;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: #111827;
+    color: #e2e8f0;
+    padding: 16px;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+button {
+    width: fit-content;
+    background: #2563eb;
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.result {
+    margin-top: 24px;
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(30, 41, 59, 0.95);
+}
+
+.result.not_safe,
+.result.phishing {
+    border-color: #f87171;
+    box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.15);
+}
+
+.result.safe {
+    border-color: #34d399;
+    box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.15);
+}
+
+.status {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.confidence {
+    margin: 10px 0 0;
+}
+
+.warnings {
+    margin-top: 18px;
+}
+
+.warnings ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #94a3b8;
+}

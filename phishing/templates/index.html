@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishing Email & URL Detector</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Phishing Email & URL Detector</h1>
+            <p>Paste email text or a URL below to detect phishing risks with ML and rule-based analysis.</p>
+        </header>
+
+        <main>
+            <form method="post" novalidate>
+                <label for="user_input">Email text or URL</label>
+                <textarea id="user_input" name="user_input" rows="8" placeholder="Enter email body or link here...">{{ user_input }}</textarea>
+                <button type="submit">Analyze</button>
+            </form>
+
+            {% if result %}
+                <section class="result {{ 'not_safe' if result.label == 'not_safe' else 'safe' }}">
+                    <h2>Analysis Result</h2>
+                    <p class="status">{{ 'Not Safe' if result.label == 'not_safe' else 'Safe' }}</p>
+                    <p class="confidence">Confidence: {{ (result.confidence * 100) | round(1) }}% — {{ result.confidence_text }}</p>
+                    {% if result.warnings %}
+                        <div class="warnings">
+                            <h3>Warnings</h3>
+                            <ul>
+                                {% for warning in result.warnings %}
+                                    <li>{{ warning }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </section>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Designed for social engineering defense and phishing awareness.</p>
+        </footer>
+    </div>
+</body>
+</html>
